@@ -1,4 +1,4 @@
-name: 'Sentry Release'
+name: 'Sentry Release (Self-Hosted)'
 description: 'GitHub Action for creating a release on Sentry'
 author: 'Sentry'
 inputs:
