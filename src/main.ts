@@ -11,6 +11,7 @@ import * as options from './options';
 
     const environment = options.getEnvironment();
     const sourcemaps = options.getSourcemaps();
+    const deployUrl = options.getURLOption();
     const shouldFinalize = options.getBooleanOption('finalize', true);
     const ignoreMissing = options.getBooleanOption('ignore_missing', false);
     const ignoreEmpty = options.getBooleanOption('ignore_empty', false);
@@ -57,6 +58,7 @@ import * as options from './options';
       core.debug(`Adding deploy to release`);
       await cli.newDeploy(version, {
         env: environment,
+        url: deployUrl,
         ...(deployStartedAtOption && {started: deployStartedAtOption}),
       });
     }

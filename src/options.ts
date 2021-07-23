@@ -162,6 +162,10 @@ export const getProjects = (): string[] => {
   return [project];
 };
 
+export const getURLOption = (): string => {
+  return core.getInput('url');
+};
+
 export const getUrlPrefixOption = (): string => {
   return core.getInput('url_prefix');
 };

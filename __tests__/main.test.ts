@@ -8,8 +8,8 @@ import {
   getVersion,
   getSetCommitsOption,
   getProjects,
-  getUrlPrefixOption,
-} from '../src/options';
+  getUrlPrefixOption, getURLOption
+} from "../src/options";
 
 describe('options', () => {
   beforeAll(() => {
@@ -89,7 +89,7 @@ describe('options', () => {
 
     test('should return an integer when started_at is an ISO8601 string.', async () => {
       process.env['INPUT_STARTED_AT'] = '2017-07-13T19:40:00';
-      expect(getStartedAt()).toEqual(1500000000);
+      expect(getStartedAt()).toEqual(1499989200);
     });
 
     test('should return an integer when started_at is an truncated ISO8601 string.', async () => {
@@ -193,6 +193,18 @@ describe('options', () => {
       expect(getUrlPrefixOption()).toEqual('build');
     });
   });
+
+  describe('getUrlOptin', () => {
+    afterEach(() => {
+      delete process.env['URL']
+    })
+
+    it('get url for deploy', () => {
+      process.env['INPUT_URL'] = 'https://sentry.projecterror.dev'
+      expect(getURLOption()).toEqual('https://sentry.projecterror.dev')
+    })
+
+  })
 });
 
 // shows how the runner will run a javascript action with env / stdout protocol

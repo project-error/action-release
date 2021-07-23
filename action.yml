@@ -32,6 +32,9 @@ inputs:
   projects:
     description: 'Space-separated list of projects. Defaults to the env variable "SENTRY_PROJECT" if not provided.'
     required: false
+  url:
+    description: 'The url to deploy to'
+    required: false
   url_prefix:
     description: 'Adds a prefix to source map urls after stripping them.'
     required: false
